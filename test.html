@@ -1,0 +1,20 @@
+<html>
+<head>
+<script type="text/javascript" src="worker.js"></script>
+<script>
+var worker = new Worker('test_worker.js');
+worker.addEventListener('message', function(msg) {
+  console.log('UI thread received result:', msg.data.result);
+});
+
+worker.postMessage({
+  cmd: 'say_something',
+  other_var: 'foo1234'
+});
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
