@@ -111,6 +111,10 @@
       mask[p] = this[p];
     // set self context
     mask['self'] = this;
+    mask['doEvents'] = function(cb) {
+      // defer to other things on the call stack
+      setTimeout(function() { cb(); }, 0);
+    }
 
     // execute script within scope
     (new Function( "with(this) { " + scr + "}")).call(mask);
