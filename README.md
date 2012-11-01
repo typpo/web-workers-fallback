@@ -6,6 +6,6 @@ Limitations:
 
 TODO:
 - error handlers
-- onmessage, onerror, etc. events
+- onerror, etc. events
 - infinite loop support
 - terminate/close support
