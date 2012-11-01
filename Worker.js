@@ -28,7 +28,7 @@
     mask['self'] = this;
     mask['doEvents'] = function(cb) {
       // defer to other things on the call stack
-      setTimeout(function() { cb(); }, 0);
+      setTimeout(function() { if (cb) cb(); }, 0);
     }
 
     // execute script within scope
