@@ -1,4 +1,7 @@
 (function(window) {
+  if (typeof window.Worker !== 'undefined') return;
+  if (console && console.log) console.log('!! Using web worker fallback');
+
   var WW_CONTEXT_WHITELIST = [
     'setTimeout', 'setInterval', 'XMLHttpRequest',
     'navigator', 'location', 'clearTimeout', 'clearInterval',
@@ -33,7 +36,6 @@
     fn.call(mask);
   } // end scopedEval
 
-  //if (typeof window.Worker !== 'undefined') return;
   window.Worker = function(worker_path) {
     var me = this;
     var worker_loaded = false;
